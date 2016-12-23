@@ -1,0 +1,83 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="container-return content-bg wow fadeIn" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="card start-choose-item wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            **กรุณาเลือกภาชนะบรรจุกลับ**
+        </div>
+        <div class="list card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.6s">
+            <div class="item item-divider broken-list__header">
+                รายการภาชนะบรรจุกลับ
+            </div>
+            <div ng-repeat="reware in rewares">
+                <a class="item item-avatar" href="javascript:void(0);" ng-click="containerReturnAmount(reware.rew_id, reware.rank)">
+                    <img src="img/pallet-with-tow-packages.png">
+                    <h2 class="broken-list__item--header">{{reware.rew_name}}</h2>
+                    <p class="broken-list__item--detail">{{reware.num_rew}} หน่วย : ตัว</p>
+                </a>
+            </div>
+        </div>
+        <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.7s">
+            <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="endMile()" id="broken-amount_save-btn">เสร็จสิ้น</md-button>
+        </div>
+    </ion-content>
+</ion-view>
+<!-- Broken Amount Modal -->
+<script id="container-return-amount.html" type="text/ng-template">
+    <ion-modal-view id="container-return-amount__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="container-return-amount__card">
+                <div class="row" id="container-return-amount__header">
+                    <span>ระบุจำนวน</span>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="container-return-amount__input">
+                        <input ng-model="num_rew" type="number" placeholder="0">
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="containerReturnAmountSave(num_rew)" id="container-return-amount_save-btn">บันทึก</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="containerReturnAmountHide()" id="container-return-amount_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<!-- End Mile Modal -->
+<script id="end-mile.html" type="text/ng-template">
+    <ion-modal-view id="end-mile__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="end-mile__card">
+                <div class="row" id="end-mile__header">
+                    <span>ระบุเลขไมล์รถสิ้นสุด</span>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="end-mile__input">
+                        <input  type="number" pattern="[0-9]" ng-model="mile">
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="endMileSave(mile)" id="end-mile_save-btn">บันทึก</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="endMileHide()" id="end-mile_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>

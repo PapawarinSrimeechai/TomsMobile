@@ -1,0 +1,42 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="delivery-loading content-bg wow fadeInUp" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Check List -->
+        <div class="check-list card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="check-list__item">
+                    <img src="img/covered.png" alt="">
+                    <span>คุมผ้าใบ<br>ก่อนออกรถ</span>
+                </div>
+                <div class="check-list__next">
+                    <i class="ion ion-arrow-right-a"></i>
+                </div>
+                <div class="check-list__item">
+                    <img src="img/aroundcheck.png" alt="">
+                    <span><span style="font-size: 14px;">เดินวนรอบรถ</span><br>ก่อนออกรถ</span>
+                </div>
+            </div>
+        </div>
+        <div class="row wow fadeInUp" id="delivery-loading__start-block" data-wow-duration="0.3s" data-wow-delay="0.6s">
+            <md-button class="md-fab md-primary" id="delivery-loading__start-btn" ng-click="confirmModal()">
+                <span>กดปุ่ม</span>
+                <span>เมื่อลงสินค้าเสร็จ</span>
+            </md-button>
+        </div>
+    </ion-content>
+</ion-view>
+

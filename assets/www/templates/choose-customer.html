@@ -1,0 +1,71 @@
+<ion-view view-title="">
+<ion-view view-title="">
+    <ion-content scroll="false" class="choose-customer content-bg wow fadeIn" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>1</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. 1234567</span>
+                    <span>รับ : บริษัทเบียร์ทิพย์ฯ</span>
+                    <span>ส่ง : ศูนย์กระจายสินค้านครราชสีมา</span>
+                </div>
+            </div>
+        </div>
+        <div class="card start-choose-item wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            **กรุณาเลือกประเภทลูกค้า**
+        </div>
+        <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.6s">
+            <md-button class="md-raised md-primary confirm-btn choose-customer-btn-1" ng-click="containerReturnModal()">ลูกค้าเอเยนต์, CV</md-button>
+        </div>
+        <div class="row margin-top-10 wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.7s">
+            <md-button class="md-raised md-primary confirm-btn choose-customer-btn-2" ng-click="containerReturnModal()">ลูกค้าอื่นๆ</md-button>
+        </div>
+    </ion-content>
+</ion-view>
+<!-- Confirm Modal -->
+<script id="container-return.html" type="text/ng-template">
+    <ion-modal-view id="container-return-confirm__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="container-return-confirm__card">
+                <img src="img/recycling.png" alt="" class="modal__img">
+                <div class="row" id="container-return-confirm__header">
+                    <span>มีภาชนะบรรจุกลับหรือไม่?</span>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="containerReturnYes()" id="container-return-confirm_save-btn">มี</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="endMile()" id="container-return-confirm_cancel-btn">ไม่มี</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<!-- End Mile Modal -->
+<script id="end-mile.html" type="text/ng-template">
+    <ion-modal-view id="end-mile__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="end-mile__card">
+                <div class="row" id="end-mile__header">
+                    <span>ระบุเลขไมล์รถสิ้นสุด</span>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="end-mile__input">
+                        <input ng-model="mile.number" placeholder="0">
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="endMileSave()" id="end-mile_save-btn">บันทึก</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="endMileHide()" id="end-mile_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>

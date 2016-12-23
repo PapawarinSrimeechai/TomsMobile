@@ -1,0 +1,50 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="broken-take-photo content-bg wow fadeIn" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="item item-avatar card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            <img src="img/wine.png">
+            <h2 class="broken-list__item--header margin-top-10">{{broken_product.pro_name}}</h2>
+            <p class="broken-list__item--detail">จำนวน {{broken_product.pro_num_pk}} ลัง {{broken_product.pro_num_bt}} ขวด</p>
+        </div>
+        <div ng-if="n<=round">
+            <div class="card start-choose-item wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.6s">
+                **กรุณาถ่ายภาพสินค้าที่เสียหาย**
+            </div>
+            <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.7s">
+                <md-button class="md-raised md-primary confirm-btn" id="take-photo-btn" ng-click="takePhoto()"><i class="ion ion-camera"></i></md-button>
+            </div>
+        </div>
+        <ion-scroll zooming="false" direction="y" style="width: 100%; height: 40%">
+            <div class="item item-image card wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.8s">
+                <!--<img src="img/broken-bottle.jpg" alt="Alternate Text" />-->
+                <img src="{{photo}}" />
+            </div>
+        </ion-scroll>
+        <div ng-if="n>=2 && n<=round">
+            <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.9s">
+                <md-button class="md-raised md-primary broken-amount_cancel" ng-click="brokenTakePhotoCancel()">ยกเลิก</md-button>
+                <!--ยกเลิก-->
+            </div>
+        </div>
+        <div ng-if="n>round">
+        <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.9s">
+            <md-button class="md-raised md-primary broken-amount_confirm" ng-click="brokenTakePhotoSave()">บันทึก</md-button>
+            <md-button class="md-raised md-primary broken-amount_cancel" ng-click="brokenTakePhotoCancel()">ยกเลิก</md-button>
+        </div>
+        </div>
+    </ion-content>
+</ion-view>

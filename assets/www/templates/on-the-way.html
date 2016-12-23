@@ -1,0 +1,68 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="on-the-way content-bg wow wow fadeInUp" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Check List -->
+        <div class="check-list card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s"> 
+            <img class="check-list__welcome" src="img/welcome.PNG" alt="">
+            <div class="row">
+                <div class="check-list__item--33">
+                    <img src="img/beltfasten.png" alt="">
+                    <span>พนักงานขับรถ<br>คาดเข็มขัดนิรภัย<br>ตลอดเวลาขับรถ</span>
+                </div>
+                <div class="check-list__item--33">
+                    <img src="img/speed80.png" alt="">
+                    <span>รถขนส่ง 6-10 ล้อ<br>ใช้ความเร็วไม่เกิน<br>80 Km./Hr.</span>
+                </div>
+                <div class="check-list__item--33">
+                    <img src="img/speed60.png" alt="">
+                    <span><span style="font-size: 14px;">รถขนส่ง 18-22 ล้อ</span><br>ใช้ความเร็วไม่เกิน<br>60 Km./Hr.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- fake bth -->
+        <div class="row padding">
+        <button class="col col-45 button button-positive" ng-click="set_s()">ออกจากต้นทาง</button>
+        <div class="col col-10"></div>
+        <button class="col col-45 button button-assertive" ng-click="set_d()" >ถึงปลายทาง</button>
+        </div>
+    </ion-content>
+</ion-view>
+
+<!-- End Mile Modal -->
+<script id="end-milecase2.html" type="text/ng-template">
+    <ion-modal-view id="end-mile__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="end-mile__card">
+                <div class="row" id="end-mile__header">
+                    <span>ระบุเลขไมล์รถสิ้นสุด</span>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="end-mile__input">
+                        <input ng-model="end_mile" type="number" placeholder="0">
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="endMileSave(end_mile)" id="end-mile_save-btn">บันทึก</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="endMileHide()" id="end-mile_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>

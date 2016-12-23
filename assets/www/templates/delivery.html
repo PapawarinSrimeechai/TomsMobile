@@ -1,0 +1,48 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="delivery content-bg wow fadeInUp" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Check List -->
+        <div class="check-list card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="check-list__item">
+                    <img src="img/parking.png" alt="">
+                    <span>จอดรถ<br>ดับเครื่อง<br>เก็บกุญแจ</span>
+                </div>
+                <div class="check-list__next">
+                    <i class="ion ion-arrow-right-a"></i>
+                </div>
+                <div class="check-list__item">
+                    <img src="img/handbreak.png" alt="">
+                    <span>จอดรถ<br>ดึงเบรคมือ<br>เบรคทาง</span>
+                </div>
+                <div class="check-list__next">
+                    <i class="ion ion-arrow-right-a"></i>
+                </div>
+                <div class="check-list__item">
+                    <img src="img/wheelbreak.png" alt="">
+                    <span>จอดรถ<br>ลงจากรถ<br>หนุนล้อ</span>
+                </div>
+            </div>
+        </div>
+        <div class="row wow fadeInUp" id="delivery__start-block" data-wow-duration="0.3s" data-wow-delay="0.6s">
+            <md-button class="md-fab md-primary" id="delivery__start-btn" ng-click="confirm()">
+                <span>กดปุ่ม</span>
+                <span>เมื่อเริ่มลงสินค้า</span>
+            </md-button>
+        </div>
+    </ion-content>
+</ion-view>

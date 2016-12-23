@@ -1,0 +1,64 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="broken-take-photo content-bg wow fadeIn" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <div ng-if="n<=round">
+            <div class="card start-choose-item wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.6s">
+                ** กรุณาถ่ายภาพที่ {{n}} **
+            </div>
+            <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.7s">
+                <md-button class="md-raised md-primary confirm-btn" id="take-photo-btn" ng-click="takePhoto()"><i class="ion ion-camera"></i></md-button>
+            </div>
+        </div>
+        <ion-scroll zooming="false" direction="y" style="width: 100%; height: 55%">
+            <div class="item item-image card wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.8s">
+                <!--<img src="img/broken-bottle.jpg" alt="Alternate Text" />-->
+                <img src="{{photo}}" />
+            </div>
+        </ion-scroll>
+        <div ng-if="n>=2 && n<=round">
+            <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.9s">
+                <md-button class="md-raised md-primary broken-amount_cancel" ng-click="PickupLoadingTakePhotoCancel()">ยกเลิก</md-button>
+                <!--ยกเลิก-->
+            </div>
+        </div>
+        <div ng-if="n>round">
+            <div class="row wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.9s">
+                <md-button class="md-raised md-primary broken-amount_confirm" ng-click="PickupLoadingTakePhotoSave()">บันทึก</md-button>
+                <md-button class="md-raised md-primary broken-amount_cancel" ng-click="PickupLoadingTakePhotoCancel()">ยกเลิก</md-button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+<!-- Confirm Modal -->
+<script id="pickup-loading-confirm.html" type="text/ng-template">
+    <ion-modal-view id="pickup-loading-confirm__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="pickup-loading-confirm__card">
+                <img src="img/question.png" alt="" class="modal__img">
+                <div class="row" id="pickup-loading-confirm__header">
+                    <span>ยืนยันการขึ้นสินค้าเสร็จเรียบร้อย?</span>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="confirm()" id="pickup-loading-confirm_save-btn">ยืนยัน</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="confirmHide()" id="pickup-loading-confirm_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>

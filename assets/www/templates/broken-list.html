@@ -1,0 +1,82 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="broken-list content-bg wow fadeIn" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="card start-choose-item wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.6s">
+            **กรุณาเลือกรายการที่แตกเสียหาย**
+        </div>
+        <ion-scroll zooming="false" direction="y" style="width: 100%; height: 65%">
+            <div class="list card wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.7s">
+                <div class="item item-divider broken-list__header">
+                    รายการสินค้า
+                </div>
+                <div ng-repeat="product in products">
+                    <a class="item item-avatar" href="javascript:void(0);" ng-click="brokenAmount(product.pro_id, product.pro_code , product.OrderRank)">
+                        <img src="img/wine.png">
+                        <h2 class="broken-list__item--header">{{product.pro_name}}</h2>
+                        <p class="broken-list__item--detail">จำนวน {{product.num_procause_pk}} ลัง {{product.num_procause_bt}} ขวด</p>
+                    </a>
+                </div>
+            </div>
+        </ion-scroll>
+        <div class="row wow fadeInUp padding" data-wow-duration="0.3s" data-wow-delay="0.8s">
+            <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="brokenDone()" id="broken-amount_save-btn">เสร็จสิ้น</md-button>
+        </div>
+    </ion-content>
+</ion-view>
+<!-- Broken Amount Modal -->
+<script id="setup-broken-amount.html" type="text/ng-template">
+    <ion-modal-view id="broken-amount__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="broken-amount__card">
+                <div class="row" id="broken-amount__header">
+                    <span>ระบุจำนวน</span>
+                </div>
+                <!--
+                <div class="row">
+                    <md-input-container md-no-float class="md-block col-75" id="broken-amount__input">
+                        <input ng-model="brokenAmountPackage" Type="number" placeholder="0">
+                    </md-input-container>
+                    <div class="row col-25" id="broken-amount__message">
+                        <span>ลัง</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block col-75" id="broken-amount__input">
+                        <input ng-model="brokenAmountBottle" Type="number" placeholder="0">
+                    </md-input-container>
+                    <div class="row col-25" id="broken-amount__message">
+                        <span>ขวด</span>
+                    </div>
+                </div> -->
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="number" ng-model="pro_num_pk" placeholder="ลัง">
+                    </label>
+                    <label class="item item-input">
+                        <input type="number" ng-model="pro_num_bt" placeholder="ขวด">
+                    </label>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="brokenAmountSave(pro_num_pk, pro_num_bt)" id="broken-amount_save-btn">บันทึก</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="brokenAmountHide()" id="broken-amount_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>

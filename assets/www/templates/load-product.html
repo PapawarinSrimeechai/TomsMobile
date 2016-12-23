@@ -1,0 +1,45 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="delivery content-bg wow fadeInUp" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="load-product card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div align="center" class="col-100 load-product__title">
+                    <span>วิธีการลงสินค้า</span>
+                </div>
+            </div>
+        </div>
+        <div class="item item-image card wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.8s" ng-click="loadproduct(1)">
+            <img src="img/Forklift.png" style="width: 50%" />
+        </div>
+        <div class="item item-image card wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.8s" ng-click="loadproduct(2)">
+            <img src="img/carrying.png" style="width: 50%" />
+        </div> -->
+        <div class="list card wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.7s">
+            <div class="item item-divider broken-list__header">
+                วิธีการลงสินค้า
+            </div>
+            <a class="item item-avatar" href="javascript:void(0);" ng-click="loadproduct(1)">
+                <img src="img/forklift.png">
+                <h2 class="broken-list__item--header">รถโฟล์คลิฟท์</h2>
+            </a>
+            <a class="item item-avatar" href="javascript:void(0);" ng-click="loadproduct(2)">
+                <img src="img/carrying.png">
+                <h2 class="broken-list__item--header">แรงงานคน</h2>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,59 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="login wow fadeInUp" data-wow-duration="0.8s">
+        <!-- Language selector -->
+        <div class="language__icon padding" align="right">
+            <img id="THflag" ng-style="langTH" src="img/TH-flag.png" ng-click="select_lang('1')">
+            <img id="UKflag" ng-style="langUK" src="img/UK-flag.png" ng-click="select_lang('0')">
+            <img id="MMflag" ng-style="langMM" src="img/MM-flag.png" ng-click="select_lang('2')">
+        </div>
+
+        <!-- Header -->
+        <div class="login__header">
+            <h1 class="wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.1s">TOMs</h1>
+            <p class="wow fadeInUp" data-wow-duration="0.3s" data-wow-delay="0.2s">mobile</p>
+        </div>
+        <!-- Input -->
+        <div class="login__input">
+            <div layout-gt-sm="row">
+                <!-- Employee Code -->
+                <md-input-container class="md-block wow fadeInUp" flex-gt-sm data-wow-duration="0.5s" data-wow-delay="0.3s">
+                    <label>{{lb1sc02}}</label>
+                    <input type="tel" pattern="[0-9]{8}" ng-model="txt_emp_id">
+                </md-input-container>
+                <!-- PIN CODE -->
+                <md-input-container class="md-block wow fadeInUp" flex-gt-sm data-wow-duration="0.5s" data-wow-delay="0.3s">
+                    <label>{{lb2sc02}}</label>
+                    <input  type="password" pattern="[0-9]{6}" ng-model="pin_code">
+                </md-input-container>
+                <!-- Plate Number -->
+                <md-input-container class="md-block wow fadeInUp" flex-gt-sm data-wow-duration="0.5s" data-wow-delay="0.4s">
+                    <label>{{lb3sc02}}</label>
+                    <input ng-model="txt_truck_id">
+                </md-input-container>
+            </div>
+            <!-- Login Button -->
+            <div class="row">
+                <md-button class="md-raised md-primary wow fadeInUp" ng-click="login(txt_emp_id,pin_code,txt_truck_id)" data-wow-duration="0.5s" data-wow-delay="0.5s">{{lb4sc02}}</md-button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
+<!-- Login Alert Modal -->
+<script id="login-alert.html" type="text/ng-template">
+    <ion-modal-view id="login-alert__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="login-alert__card">
+                <img src="img/exclamation.png" alt="" class="modal__img">
+                <div class="row" id="login-alert__header">
+                    <span>รหัสผ่านผิด!</span>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary" ng-click="alertHide()" id="login-alert_ok-btn">ตกลง</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>

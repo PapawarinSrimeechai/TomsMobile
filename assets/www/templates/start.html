@@ -1,0 +1,158 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="start content-bg wow fadeInUp" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- User Profile -->
+        <div class="user-profile card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="user-profile__left">
+                    <img src="img/courier.png" alt="">
+                </div>
+                <div class="user-profile__title">
+                    <span>{{driver_name}}</span>
+                    <span>{{truck_id}}</span>
+                    <span>{{driver_ssn}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Check List -->
+        <div class="start-check-list card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="start-check-list__left">
+                    <img src="img/checklist.png" alt="">
+                    <span>{{lb1sc03}}</span>
+                </div>
+                <div class="start-check-list__middle">
+                    <i class="ion ion-arrow-right-a"></i>
+                </div>
+                <div class="start-check-list__right">
+                    <img src="img/nodrink.png" alt="">
+                    <span>{{lb2sc03}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Start Button -->
+        <div class="row wow fadeInUp" id="start-div" data-wow-duration="0.3s" data-wow-delay="0.6s">
+            <md-button class="md-fab md-primary" id="start-btn" ng-click="checkList()">
+                <span>{{lb3sc03}}</span>
+                <span>{{lb4sc03}}</span>
+            </md-button>
+        </div>
+        <!-- Item List -->
+        <ion-scroll zooming="false" direction="y" style="width: 100%; height: 45%">
+            <div id="list-item">
+                <!--<div class="card start-choose-item">
+                    **กรุณาเลือกงานที่ต้องการทำ**
+                </div> -->
+                <div ng-repeat="item in items">
+                    <!-- First Item -->
+                    <md-card id="first-item">
+                        <div class="row first-item__header">
+                            <div class="col-66 first-item__header--title">
+                                <span class="md-title">{{lb7sc03}} [{{item.spot_seq}}]</span>
+                            </div>
+                            <div class="row col-25 first-item__header--img">
+                                <div class="col-50">
+                                    <i class="ion ion-arrow-right-a"></i>
+                                </div>
+                                <div class="col-50">
+                                    <img src="img/truck.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row first-item__detail">
+                            <div class="col-66 first-item__detail--left">
+                                <span>{{lb9sc03}} {{item.ship_id}}</span>
+                                <span>{{item.spot_sour_name}}</span>
+                                <span>{{item.spot_sour_add}}</span>
+                            </div>
+                            <div class="col-33 first-item__detail--right">
+                                <span>{{item.spot_sour_date}}</span>
+                                <span>{{item.spot_sour_time}}</span>
+                                <span>ประตู {{item.spot_sour_gate}}</span>
+                            </div>
+                        </div>
+                    </md-card>
+                    <!-- Second Item -->
+                    <md-card id="second-item">
+                        <div class="row second-item__header">
+                            <div class="col-66 second-item__header--title">
+                                <span class="md-title">{{lb8sc03}} [{{item.spot_seq}}]</span>
+                            </div>
+                            <div class="row col-25 second-item__header--img">
+                                <div class="col-50">
+                                    <i class="ion ion-arrow-left-a"></i>
+                                </div>
+                                <div class="col-50">
+                                    <img src="img/truck.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row second-item__detail">
+                            <div class="col-66 second-item__detail--left">
+                                <span>{{lb9sc03}} {{item.ship_id}}</span>
+                                <span>{{item.spot_dest_name}}</span>
+                                <span>{{item.spot_dest_add}}</span>
+                            </div>
+                            <div class="col-33 second-item__detail--right">
+                                <span>{{item.spot_dest_date}}</span>
+                                <span>{{item.spot_dest_time}}</span>
+                                <span>ประตู {{item.spot_dest_gate}}</span>
+                            </div>
+                        </div>
+                    </md-card>
+                </div>
+            </div>
+        </ion-scroll>
+        <!-- Start Button -->
+        <div class="row">
+            <md-button class="md-raised md-primary confirm-btn" id="start-work-btn" ng-click="mileShow()">{{lb10sc03}}</md-button>
+        </div>
+    </ion-content>
+</ion-view>
+<!-- Mile Modal -->
+<script id="setup-mile.html" type="text/ng-template">
+    <ion-modal-view id="mile__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="mile__card">
+                <div class="row" id="mile__header">
+                    <span>{{lb11sc03}}</span>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="mile__input">
+                        <input type="number" pattern="[0-9]" ng-model="mile" >
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="mileSave(mile)" id="mile_save-btn">{{lb12sc03}}</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="mileHide()" id="mile_cancel-btn">{{lb13sc03}}</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
+
+<!-- getShipmentErr Alert Modal -->
+<script id="getShipmentErr-alert.html" type="text/ng-template">
+    <ion-modal-view id="getShipmentErr-alert__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="getShipmentErr-alert__card">
+                <img src="img/exclamation.png" alt="" class="modal__img">
+                <div class="row" id="getShipmentErr-alert__header">
+                    <span>ไม่มีการเชื่อมต่ออินเตอร์เน็ต</span>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary" ng-click="alertErrHide()" id="getShipmentErr-alert_ok-btn">ตกลง</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
+

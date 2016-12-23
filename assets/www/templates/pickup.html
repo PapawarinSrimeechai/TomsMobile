@@ -1,0 +1,49 @@
+<ion-view view-title="">
+    <ion-content scroll="false" class="pickup content-bg wow fadeInUp" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>{{lb1sc04}} {{ship_id}}</span>
+                    <span>{{lb2sc04}} : {{spot_sour_name}}</span>
+                    <span>{{lb3sc04}}: {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Check List -->
+        <div class="check-list card wow fadeInUp" data-wow-duration="0.4s" data-wow-delay="0.5s">
+            <div class="row">
+                <div class="check-list__item">
+                    <img src="img/parking.png" alt="">
+                    <span>{{lb4sc04}}</span>
+                </div>
+                <div class="check-list__next">
+                    <i class="ion ion-arrow-right-a"></i>
+                </div>
+                <div class="check-list__item">
+                    <img src="img/handbreak.png" alt="">
+                    <span>{{lb5sc04}}</span>
+                </div>
+                <div class="check-list__next">
+                    <i class="ion ion-arrow-right-a"></i>
+                </div>
+                <div class="check-list__item">
+                    <img src="img/wheelbreak.png" alt="">
+                    <span>{{lb6sc04}}</span>
+                </div>
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="row wow fadeInUp" id="pickup__start-block" data-wow-duration="0.3s" data-wow-delay="0.6s">
+            <md-button class="md-fab md-primary" id="pickup__start-btn" ng-click="confirm()">
+                <span>{{lb7sc04}}</span>
+                <span>{{lb8sc04}}</span>
+            </md-button>
+        </div>
+    </ion-content>
+</ion-view>

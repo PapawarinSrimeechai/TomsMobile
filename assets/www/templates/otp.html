@@ -1,0 +1,95 @@
+<ion-view view-title="">
+<ion-view view-title="">
+    <ion-content scroll="false" class="otp content-bg wow fadeIn" data-wow-duration="0.5s">
+        <!-- Notification -->
+        <div class="notification wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <img src="img/notification.png" alt="">
+            <span>{{ShipmentTotal}}</span>
+        </div>
+        <!-- Item Detail -->
+        <div class="item-detail card wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.3s">
+            <div class="row">
+                <div class="col-100 item-detail__title">
+                    <span>No. {{ship_id}}</span>
+                    <span>รับ : {{spot_sour_name}}</span>
+                    <span>ส่ง : {{spot_dest_name}}</span>
+                </div>
+            </div>
+        </div>
+        
+                <div class="row " id="end-mile__header">
+                    <span>รหัส OTP</span><br><br><br>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="end-mile__input">
+                        <input ng-model="userotp" type="tel" pattern="[0-9]{6}" placeholder="123456">
+                    </md-input-container>
+                </div>
+           
+            <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="chk_otp(userotp)" id="end-mile_save-btn">บันทึก</md-button>
+                </div>
+    </ion-content>
+</ion-view>
+<!-- Confirm Modal -->
+<script id="container-return.html" type="text/ng-template">
+    <ion-modal-view id="container-return-confirm__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="container-return-confirm__card">
+                <img src="img/recycling.png" alt="" class="modal__img">
+                <div class="row" id="container-return-confirm__header">
+                    <span>มีภาชนะบรรจุกลับหรือไม่?</span>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="containerReturnYes()" id="container-return-confirm_save-btn">มี</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="endMile()" id="container-return-confirm_cancel-btn">ไม่มี</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
+<!-- End Mile Modal -->
+<script id="end-mile.html" type="text/ng-template">
+    <ion-modal-view id="end-mile__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="end-mile__card">
+                <div class="row" id="end-mile__header">
+                    <span>ระบุเลขไมล์รถสิ้นสุด</span>
+                </div>
+                <div class="row">
+                    <md-input-container md-no-float class="md-block" id="end-mile__input">
+                        <input type="number" pattern="[0-9]" ng-model="mile">
+                    </md-input-container>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary col-33 confirm-btn" ng-click="endMileSave(mile)" id="end-mile_save-btn">บันทึก</md-button>
+                    <md-button class="md-raised md-primary col-33" ng-click="endMileHide()" id="end-mile_cancel-btn">ยกเลิก</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
+
+
+<!-- getShipmentErr Alert Modal -->
+<script id="Err-alert.html" type="text/ng-template">
+    <ion-modal-view id="Err-alert__modal">
+        <!-- <ion-header-bar>
+        </ion-header-bar> -->
+        <ion-content scroll="false">
+            <md-card id="Err-alert__card">
+                <img src="img/exclamation.png" alt="" class="modal__img">
+                <div class="row" id="Err-alert__header">
+                    <span>รหัสผ่านผิด</span>
+                </div>
+                <div class="row">
+                    <md-button class="md-raised md-primary" ng-click="alertErrHide()" id="Err-alert_ok-btn">ตกลง</md-button>
+                </div>
+            </md-card>
+        </ion-content>
+    </ion-modal-view>
+</script>
